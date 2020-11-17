@@ -25,13 +25,12 @@ function incSizeHeighth() {
 }
 
 function destroyBoxes() {
-    if (boxesdivRef) {
-        boxesRef.removeChild(boxesdivRef);
-    }
+    boxesRef.innerHTML = "";
 }
 
 const arrDiv = [];
 function createBoxes(element) {
+    boxesRef.innerHTML = "";
     for (let i = 0; i < element; i += 1){
         const elDiv = document.createElement("div")
         elDiv.style.backgroundColor = getRandomColor();
@@ -39,14 +38,12 @@ function createBoxes(element) {
         elDiv.style.height = incSizeHeighth() + 'px';
         arrDiv.push(elDiv)
     }
-
 }
 
-
 renderBtn.addEventListener('click', () => {
-    destroyBoxes()
+    
     createBoxes(controlsRef.value)
     boxesRef.prepend(...arrDiv)
 })
 
-destroyBtn.addEventListener('click', destroyBoxes())
+destroyBtn.addEventListener('click', destroyBoxes )

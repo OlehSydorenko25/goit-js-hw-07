@@ -18,17 +18,27 @@ const images = [
 
 const addImg = document.querySelector("ul#gallery");
 
-let galleryArr = [];
+// let galleryArr = [];
 
-images.forEach(el => {
+// images.forEach(el => {
+//     const elLi = document.createElement("li");
+//     const elImg = document.createElement("img");
+//     elImg.setAttribute("src", `${el.url}`);
+//     elImg.setAttribute("alt", `${el.alt}`);
+//     elLi.classList.add("li-img")
+//     elLi.appendChild(elImg);
+//     galleryArr.push(elLi);
+    
+// });
+
+const arrImg = images.map(el => {
     const elLi = document.createElement("li");
     const elImg = document.createElement("img");
     elImg.setAttribute("src", `${el.url}`);
     elImg.setAttribute("alt", `${el.alt}`);
     elLi.classList.add("li-img")
     elLi.appendChild(elImg);
-    galleryArr.push(elLi);
-    
-});
+    return elLi;
+})
 
-addImg.prepend(...galleryArr);
+addImg.prepend(...arrImg);
